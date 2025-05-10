@@ -1,0 +1,56 @@
+:root {
+  /* Base colors */
+  --primary: #6C5CE7;
+  --primary-light: #A29BFE;
+  --accent: #00CEFF;
+  --accent-light: #81D8F7;
+
+  /* Light theme */
+  --background: #F5F6FA;
+  --surface: #FFFFFF;
+  --on-background: #2D3436;
+  --on-surface: #2D3436;
+
+  --primary-text: #2D3436;
+  --secondary-text: #636E72;
+  --accent-text: #6C5CE7;
+
+  --button: #E0E0E0;
+  --button-text: #2D3436;
+  --button-accent: #6C5CE7;
+  --button-accent-text: #FFFFFF;
+
+  --modal: #FFFFFF;
+  --modal-text: #2D3436;
+  --modal-overlay: rgba(45, 52, 54, 0.5);
+
+  --container: #EDF0F2;
+  --on-container: #2D3436;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark theme */
+    --background: #2D3436;
+    --surface: #3B4345;
+    --on-background: #F5F6FA;
+    --on-surface: #F5F6FA;
+
+    --primary-text: #F5F6FA;
+    --secondary-text: #B2BEC3;
+    --accent-text: #A29BFE;
+
+    --button: #3B4345;
+    --button-text: #F5F6FA;
+    --button-accent: #6C5CE7;
+    --button-accent-text: #FFFFFF;
+
+    --modal: #3B4345;
+    --modal-text: #F5F6FA;
+    --modal-overlay: rgba(0, 0, 0, 0.7);
+
+    --container: #3B4345;
+    --on-container: #F5F6FA;
+  }
+}
+

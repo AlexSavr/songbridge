@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.playlist-label {
+  font-size: .8rem;
+  opacity: .7;
+}
+
+.title {
+  font-weight: 700;
+}
+
+.where-updated {
+  font-size: .8rem;
+  opacity: .7;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+}

@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.logo {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.logo-text {
+  width: 100%;
+  text-align: center;
+}
+
+.welcome-text {
+  text-align: center;
+
+  &__description {
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+}
