@@ -1,8 +1,7 @@
-import Link from "next/link";
 import styles from '../styles/main-page.module.scss';
+import Button from "@/components/button";
 
-type Props = {};
-const MainPage = (props: Props) => {
+const MainPage = () => {
   return (
     <main className={styles.container}>
       <div className={styles.logo}>
@@ -15,11 +14,9 @@ const MainPage = (props: Props) => {
           Создайте комнату чтобы поделиться своим плейлистом
         </p>
       </h2>
-      <Link href="/room/1">
-        <button className="button button--primary button--flat">
-          Создать комнату
-        </button>
-      </Link>
+      <Button variant="filled" color="primary" href="/room/1">
+        Создать комнату
+      </Button>
     </main>
   );
 };

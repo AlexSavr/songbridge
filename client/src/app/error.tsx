@@ -1,5 +1,7 @@
 'use client';
 
+import Button from "@/components/button";
+
 interface ErrorProps {
   error: Error;
   reset?: () => void;
@@ -11,19 +13,11 @@ export default function Error({ error, reset }: ErrorProps) {
       <h1>500 — Ошибка сервера</h1>
       <p>{error.message || 'Что-то пошло не так.'}</p>
       {reset ?
-      <button
+      <Button
         onClick={reset}
-        style={{
-          background: 'var(--button-accent)',
-          color: 'var(--button-accent-text)',
-          padding: '0.5rem 1rem',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer',
-        }}
       >
         Попробовать снова
-      </button>
+      </Button>
       : null}
     </div>
   );

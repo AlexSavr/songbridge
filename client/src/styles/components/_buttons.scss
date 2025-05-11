@@ -12,6 +12,7 @@
   text-align: center;
   padding: 0.5rem 1rem;
   font-size: 14px;
+  background-color: unset;
 
   @include desktop {
     padding: 0.75rem 1.5rem;
@@ -19,43 +20,88 @@
   }
 
   &--primary {
-    background: var(--primary);
-    color: white;
-
-    &.button--flat {
+    &.button--filled {
+      background: var(--primary);
       color: white;
-      border-color: var(--primary);
+
+      &:hover {
+        background: var(--primary-light);
+      }
     }
 
-    &.button--flat:hover,
-    &:hover {
-      background: var(--primary-light);
+    &.button--outlined {
+      color: white;
+      border-color: var(--primary);
+
+      &:hover {
+        background: var(--primary-light);
+      }
+    }
+
+    &.button--flat {
+      color: var(--primary);
+
+      &:hover {
+        color: var(--primary-light);
+      }
     }
   }
 
   &--accent {
-    background: var(--accent);
-    color: white;
+    &.button--filled {
+      background: var(--accent);
+      color: var(--button-accent-text);
 
-    &.button--flat:hover,
-    &:hover {
-      background: var(--accent-light);
+      &:hover {
+        background: var(--accent-light);
+      }
+    }
+
+    &.button--outlined {
+      border-color: var(--accent);
+
+      &:hover {
+        background: var(--accent-light);
+      }
+    }
+
+    &.button--flat {
+      color: var(--accent-text);
+
+      &:hover {
+        color: var(--accent-light);
+      }
     }
   }
 
-  &--flat {
-    background: transparent;
-    color: var(--primary-text);
-    border: 1px solid var(--button);
-
-    &:hover {
+  &--default {
+    &.button--filled {
       background: var(--button);
+      color: var(--button-text);
+
+      &:hover {
+        background: var(--button-hover);
+      }
+    }
+
+    &.button--outlined {
+      border-color: var(--button);
+
+      &:hover {
+        background: var(--button-hover);
+      }
+    }
+
+    &.button--flat {
+      color: var(--button-text);
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 
   &--filled {
-    background: var(--surface);
-    color: var(--primary-text);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
     &:hover {
@@ -63,7 +109,7 @@
     }
   }
 
-  &--disabled {
+  &:disabled, &[disabled], &.disabled {
     opacity: 0.6;
     cursor: not-allowed;
   }

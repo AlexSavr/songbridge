@@ -1,5 +1,4 @@
 import RoomHeader from "@/app/room/[id]/layout/header";
-import AddToPlaylist from "@/app/room/[id]/layout/add-to-playlist";
 import RoomPlaylist from "@/app/room/[id]/layout/playlist";
 import {AudioFile} from "@/types/audio";
 
@@ -16,7 +15,6 @@ export default function RoomClientComponent({
   return (
     <main className="content">
       <RoomHeader whereUpdated={whereUpdated} />
-      <AddToPlaylist />
       <RoomPlaylist initialAudioFiles={initialAudioFiles} />
     </main>
   );

@@ -1,4 +1,6 @@
 import styles from './room-header.module.scss';
+import Button from "@/components/button";
+import AddToPlaylist from "@/app/room/[id]/layout/add-to-playlist";
 
 type Props = {
   whereUpdated: string;
@@ -16,8 +18,9 @@ const RoomHeader = ({ whereUpdated }: Props) => {
         <p className={styles['where-updated']}>Обновлен <span>{whereUpdated}</span></p>
       </div>
       <div className={styles['actions']}>
-        <button className={[styles['add-to-playlist'], 'button button--accent'].join(' ')}>Слушать</button>
-        <button className={[styles['share-playlist'], 'button button--primary'].join(' ')}>Поделиться</button>
+        <Button variant="filled" color="primary" className={styles['add-to-playlist']}>Слушать</Button>
+        <AddToPlaylist />
+        <Button variant="filled" className={styles['share-playlist']}>Поделиться</Button>
       </div>
     </header>
   );

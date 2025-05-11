@@ -13,7 +13,6 @@ const RoomPlaylist = ({ initialAudioFiles }: Props) => {
 
   return (
     <div className={styles.container}>
-      <h2>Плейлист</h2>
       <ul className={styles.list}>
         {audioFiles.map((file) => (
           <li key={file.id} className={styles.element}>
