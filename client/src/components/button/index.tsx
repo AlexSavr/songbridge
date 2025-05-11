@@ -10,7 +10,7 @@ type ButtonBaseProps = {
   className?: string;
 };
 
-type ButtonProps = ButtonBaseProps &
+export type ButtonProps = ButtonBaseProps &
   (ButtonHTMLAttributes<HTMLButtonElement> | AnchorHTMLAttributes<HTMLAnchorElement>) & {
   href?: string;
 };
