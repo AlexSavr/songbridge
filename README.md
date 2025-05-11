@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="client/public/logo.png" alt="Логотип" width="200" />
+</p>
+
 # SongBridge - Music Sharing Platform
 
 `Docker` `NestJS` `Next.js` `PostgreSQL`
