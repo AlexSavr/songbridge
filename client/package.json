@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "license": "MIT",
   "dependencies": {
     "dayjs": "^1.11.13",
     "framer-motion": "^12.10.5",

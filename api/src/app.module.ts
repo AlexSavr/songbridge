@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { RoomsModule } from './rooms/rooms.module';
+import { TracksModule } from './tracks/tracks.module';
 
 @Module({
   imports: [
@@ -22,10 +22,16 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         database: config.get<string>('DB_NAME'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: config.get<string>('NODE_ENV') === 'development',
+        extra: {
+          options: {
+            encrypt: false,
+          },
+        },
+        logging: true,
       }),
     }),
+    RoomsModule,
+    TracksModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
