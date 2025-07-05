@@ -24,6 +24,7 @@ services:
       - ./client:/app
     environment:
       - CHOKIDAR_USEPOLLING=true
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
 
   database:
     image: postgres:17
