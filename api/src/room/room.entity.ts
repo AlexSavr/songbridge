@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { Track } from '../tracks/track.entity';
+import { Track } from '../track/track.entity';
 import { ApiProperty } from '@nestjs/swagger';
 
 @Entity()

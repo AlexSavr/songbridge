@@ -1,17 +1,18 @@
-import {Injectable, NotFoundException} from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Room } from './room.entity';
+import { CreateRoomDto } from './dto/create-room.dto';
 
 @Injectable()
-export class RoomsService {
+export class RoomService {
   constructor(
     @InjectRepository(Room)
     private roomRepository: Repository<Room>,
   ) {}
 
-  async create(): Promise<Room> {
-    const room = this.roomRepository.create();
+  async create(createRoomDto: CreateRoomDto): Promise<Room> {
+    const room = this.roomRepository.create(createRoomDto);
     return this.roomRepository.save(room);
   }
 

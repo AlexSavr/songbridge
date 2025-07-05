@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { RoomsModule } from './rooms/rooms.module';
-import { TracksModule } from './tracks/tracks.module';
+import { RoomModule } from './room/room.module';
+import { TrackModule } from './track/track.module';
 
 @Module({
   imports: [
@@ -13,25 +13,21 @@ import { TracksModule } from './tracks/tracks.module';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: (config: ConfigService) => ({
-        type: 'postgres',
-        host: config.get<string>('DB_HOST'),
-        port: config.get<number>('DB_PORT'),
-        username: config.get<string>('DB_USER'),
-        password: config.get<string>('DB_PASSWORD'),
-        database: config.get<string>('DB_NAME'),
-        entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        synchronize: config.get<string>('NODE_ENV') === 'development',
-        extra: {
-          options: {
-            encrypt: false,
-          },
-        },
-        logging: true,
-      }),
+      useFactory: (config: ConfigService) => {
+        return {
+          type: 'postgres',
+          host: config.get<string>('DB_HOST'),
+          port: config.get<number>('DB_PORT'),
+          username: config.get<string>('DB_USER'),
+          password: config.get<string>('DB_PASSWORD'),
+          database: config.get<string>('DB_NAME'),
+          entities: [__dirname + '/**/*.entity{.ts,.js}'],
+          synchronize: config.get<string>('NODE_ENV') === 'development',
+        };
+      },
     }),
-    RoomsModule,
-    TracksModule,
+    RoomModule,
+    TrackModule,
   ],
 })
 export class AppModule {}
