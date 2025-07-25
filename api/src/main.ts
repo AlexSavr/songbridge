@@ -6,6 +6,13 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api');
 
+  app.enableCors({
+    origin: process.env.CLIENT_URL ?? 'http://localhost:3000',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    // allowedHeaders: ['Content-Type', 'Authorization'],
+    // credentials: true,
+  });
+
   const config = new DocumentBuilder()
     .setTitle('Music Rooms API')
     .setDescription('API для управления комнатами и треками')
