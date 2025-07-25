@@ -3,9 +3,11 @@
 import {useState} from "react";
 import {AudioFile} from "@/types/audio";
 import styles from './room-playlist.module.scss';
+import {Room} from "@/api/room/types";
 
 type Props = {
   initialAudioFiles: AudioFile[];
+  roomData: Room;
 };
 
 const RoomPlaylist = ({ initialAudioFiles }: Props) => {

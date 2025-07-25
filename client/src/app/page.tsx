@@ -1,7 +1,29 @@
+"use client";
+
 import styles from '../styles/main-page.module.scss';
 import Button from "@/components/button";
+import {useRouter} from "next/navigation";
+import useSWRMutation from "swr/mutation";
+import {apiCreateRoom} from "@/api/room/api.room.create";
+import {toast} from "react-toastify";
 
 const MainPage = () => {
+  const router = useRouter();
+
+  const { trigger: createRoom, isMutating } = useSWRMutation(
+    'create-room',
+    () => apiCreateRoom(),
+    {
+      onSuccess: (data) => {
+        router.push(`/room/${data?.room?.id}`);
+      },
+      onError: (error) => {
+        console.error('Ошибка при создании комнаты:', error);
+        toast("При создании комнаты произошла ошибка");
+      },
+    }
+  );
+
   return (
     <main className={styles.container}>
       <div className={styles.logo}>
@@ -14,8 +36,16 @@ const MainPage = () => {
           Создайте комнату чтобы поделиться своим плейлистом
         </p>
       </h2>
-      <Button variant="filled" color="primary" href="/room/1">
-        Создать комнату
+      <Button variant="filled" color="primary"
+              onClick={() => createRoom()}
+              disabled={isMutating}>
+        {isMutating ? (
+          <>
+            Создание...
+          </>
+        ) : (
+          'Создать комнату'
+        )}
       </Button>
     </main>
   );

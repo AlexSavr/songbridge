@@ -1,20 +1,19 @@
 import styles from './room-header.module.scss';
 import Button from "@/components/button";
 import AddToPlaylist from "@/app/room/[id]/layout/add-to-playlist";
+import {Room} from "@/api/room/types";
 
 type Props = {
   whereUpdated: string;
+  roomData: Room;
 };
 
-// TODO: Change mock
-const roomName = 'Анонимная комната';
-
-const RoomHeader = ({ whereUpdated }: Props) => {
+const RoomHeader = ({ whereUpdated, roomData }: Props) => {
   return (
     <header className={styles.container}>
       <div className={styles['basic-info']}>
         <p className={styles['playlist-label']}>Плейлист</p>
-        <h1 className={styles.title}>{ roomName }</h1>
+        <h1 className={styles.title}>{ roomData.name }</h1>
         <p className={styles['where-updated']}>Обновлен <span>{whereUpdated}</span></p>
       </div>
       <div className={styles['actions']}>
